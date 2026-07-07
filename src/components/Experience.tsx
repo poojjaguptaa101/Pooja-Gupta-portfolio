@@ -64,6 +64,20 @@ export default function Experience() {
       duration: "2021 - 2024 | Percentage: 79%",
       desc: "Acquired foundational training in programming methodologies, database management systems, data structures, and standard web development paradigms.",
     },
+    {
+      title: "Class XII (Intermediate)",
+      field: "Higher Secondary Education (Science)",
+      org: "Government Girls Inter College",
+      duration: "2021 | Percentage: 70%",
+      desc: "Completed higher secondary education focusing on scientific studies, physics, chemistry, and mathematics.",
+    },
+    {
+      title: "Class X (High School)",
+      field: "Secondary Education",
+      org: "Government Girls Inter College",
+      duration: "2019 | Percentage: 75%",
+      desc: "Completed secondary education with focused analytical and mathematical skills.",
+    },
   ];
 
   return (
@@ -83,7 +97,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="font-space font-bold text-3xl sm:text-5xl mt-2 text-white"
         >
-          History & Qualifications
+          Experience & Qualifications
         </motion.h2>
       </div>
 

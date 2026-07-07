@@ -15,6 +15,7 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Terminal from "@/components/Terminal";
 import Footer from "@/components/Footer";
+import StarfieldBackground from "@/components/StarfieldBackground";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +28,9 @@ export default function Home() {
 
       {!isLoading && (
         <div className="flex flex-col min-h-screen">
+          {/* Global R3F Fixed Constellation backdrop */}
+          <StarfieldBackground />
+
           {/* 2. Custom trailing cursor */}
           <CustomCursor />
 

@@ -8,7 +8,6 @@ import { Sparkles, Terminal as TermIcon, Play } from "lucide-react";
 export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
   const [currentLogIndex, setCurrentLogIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -17,7 +16,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   const titleText = "Building AI-powered solutions and modern digital experiences.";
   const titleWords = titleText.split(" ");
 
-  const roles = ["AI Engineer", "Software Engineer", "Full Stack Developer"];
+  const roles = ["AI Engineer & Software Developer", "Full Stack Developer"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [roleText, setRoleText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -183,7 +182,9 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setIsLoaded(true);
+          setTimeout(() => {
+            handleEnter();
+          }, 350); // Pause for 350ms so user sees 100%, then trigger GSAP transition
           return 100;
         }
         // Logs updates based on progress thresholds
@@ -284,53 +285,26 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             </div>
 
             {/* Dynamic Console status logging */}
-            <AnimatePresence mode="wait">
-              {!isLoaded ? (
-                <motion.div
-                  key="loader"
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full max-w-sm flex flex-col items-center"
-                >
-                  {/* Console logs */}
-                  <div className="h-6 mb-3 flex items-center gap-2 text-white/40 font-mono text-xs">
-                    <TermIcon className="w-3.5 h-3.5 text-purple-400" />
-                    <span>{logs[currentLogIndex]}</span>
-                  </div>
+            {/* Dynamic Console status logging */}
+            <div className="w-full max-w-sm flex flex-col items-center">
+              {/* Console logs */}
+              <div className="h-6 mb-3 flex items-center gap-2 text-white/40 font-mono text-xs">
+                <TermIcon className="w-3.5 h-3.5 text-purple-400" />
+                <span>{logs[currentLogIndex]}</span>
+              </div>
 
-                  {/* Glass progress bar */}
-                  <div className="w-64 h-[3px] bg-white/10 rounded-full overflow-hidden relative mb-2">
-                    <div
-                      className="h-full bg-gradient-to-r from-purple-500 via-cyan-400 to-amber-400 transition-all duration-100 ease-out"
-                      style={{ width: `${Math.min(progress, 100)}%` }}
-                    />
-                  </div>
+              {/* Glass progress bar */}
+              <div className="w-64 h-[3px] bg-white/10 rounded-full overflow-hidden relative mb-2">
+                <div
+                  className="h-full bg-gradient-to-r from-purple-500 via-cyan-400 to-amber-400 transition-all duration-100 ease-out"
+                  style={{ width: `${Math.min(progress, 100)}%` }}
+                />
+              </div>
 
-                  <span className="text-[10px] font-mono text-cyan-400/60 tracking-widest uppercase">
-                    {Math.min(progress, 100)}% Synchronized
-                  </span>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="enter-action"
-                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-                  className="relative group"
-                >
-                  {/* Magnetic glowing rings */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full blur-xl opacity-40 group-hover:opacity-75 transition-all duration-300 -z-10 group-hover:scale-105" />
-                  
-                  <button
-                    onClick={handleEnter}
-                    className="flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-purple-500/30 hover:border-cyan-400 text-white font-space font-bold uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(124,58,237,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all cursor-pointer overflow-hidden relative"
-                  >
-                    <Play className="w-4 h-4 text-purple-400 fill-purple-400 group-hover:text-cyan-400 group-hover:fill-cyan-400 transition-colors" />
-                    <span>Enter Portfolio</span>
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              <span className="text-[10px] font-mono text-cyan-400/60 tracking-widest uppercase">
+                {Math.min(progress, 100)}% Synchronized
+              </span>
+            </div>
           </div>
 
           {/* Bottom details copyright indicator */}

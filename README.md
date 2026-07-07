@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Pooja Gupta - Premium 3D Developer Portfolio
 
-## Getting Started
+A world-class, premium, dark-themed personal portfolio website featuring immersive 3D canvas particles, interactive keyboard command consoles, developer shell terminals, and dynamic GitHub/LeetCode bento dashboard statistics.
 
-First, run the development server:
+**Live Staging Link**: [https://pooja-gupta-portfolio.surge.sh](https://pooja-gupta-portfolio.surge.sh)
 
+---
+
+## 🛠️ Tech Stack
+
+*   **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+*   **Library**: [React 19](https://react.dev/)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+*   **Animations**: [Framer Motion](https://www.framer.com/motion/) + [GSAP](https://gsap.com/)
+*   **3D Graphics**: [Three.js](https://threejs.org/) ([React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction) + [Drei](https://github.com/pmndrs/drei))
+*   **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
+*   **Icons**: [Lucide Icons](https://lucide.dev/)
+
+---
+
+## ✨ Features & Architecture
+
+### 🎭 Stage 1: Cinematic Intro Page
+*   **Interactive Particle Canvas**: Features a responsive canvas particle field reacting to user cursor pull physics.
+*   **Typist Sequence Subtitles**: Alternates through primary engineering roles (`AI Engineer`, `Software Engineer`, `Full Stack Developer`).
+*   **GSAP Exit Transition**: Fades out using scale, zoom, and high-blur filters when the glassmorphic **ENTER PORTFOLIO** button is clicked.
+
+### 🌐 Stage 2: Main Portfolio
+*   **3D Constellations Plexus Hero**: Interactive WebGL particle mesh canvas tracking frame delta orbits.
+*   **HUD Command Palette (`Ctrl+K`)**: Modal interface enabling keyboard-driven navigation across sections.
+*   **Developer Terminal console**: Slide-up interactive CLI drawer supporting basic commands (`help`, `about`, `skills`, `projects`, `clear`).
+*   **Split Timeline Columns**: Restructured vertical experience timelines separating **Work Experience** and **Education** side-by-side.
+*   **Bento Analytics Dashboard**: Integrates users endpoint queries to pull live GitHub repositories, stars, followers, and language charts alongside LeetCode solved status bars.
+*   **Responsive layouts**: Fully optimized and responsive on both mobile and desktop viewports.
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally on your machine:
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
+### 2. Run Local Development Server
+```bash
+npm run dev
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Compile Production Static Export
+Generates a highly optimized static HTML/CSS/JS export inside the `out/` directory:
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Deploy to Surge
+```bash
+npx surge out pooja-gupta-portfolio.surge.sh
+```

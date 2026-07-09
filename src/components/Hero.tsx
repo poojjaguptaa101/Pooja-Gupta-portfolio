@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FileText, ArrowRight, MessageSquare } from "lucide-react";
 
@@ -121,7 +122,7 @@ export default function Hero() {
             </button>
 
             <a
-              href="/Pooja_Gupta_Resume.pdf"
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-white font-space font-bold uppercase tracking-wider text-xs transition-all"

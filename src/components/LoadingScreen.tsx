@@ -229,7 +229,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         >
           {/* Subtle noise and radial spot light effects */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.06),transparent_70%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.015] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{ backgroundImage: "url('/noise.png')" }} />
 
           {/* Interactive particles background canvas */}
           <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
